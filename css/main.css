@@ -1,0 +1,167 @@
+:root {
+    --primary: #FFFFFF;
+    --secondary: #4CAF50;
+    --accent: #F8D64E;
+    --dark: #0F0F0F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--primary);
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 75% 30%, #2a0a4a 0%, #0a0420 60%);
+    z-index: -1;
+}
+
+/* Статус в углу */
+.status-corner {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.signal-icon {
+    width: 12px;
+    height: 12px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    box-shadow: 0 0 5px var(--secondary);
+}
+
+.playing-text {
+    color: var(--secondary);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.verified-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.percent {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* Основной контент */
+.content-wrapper {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.main-logo {
+    width: 200px;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(248, 214, 78, 0.5));
+}
+
+.mines-btn {
+    position: relative;
+    background: linear-gradient(145deg, #f8d64e, #e6c042);
+    color: #000;
+    border: none;
+    padding: 18px 50px;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(248, 214, 78, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mines-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(248, 214, 78, 0.6);
+}
+
+.btn-decoration {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    opacity: 0.2;
+}
+
+/* Анимация загрузки */
+.loading {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 100;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(248, 214, 78, 0.3);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* Адаптация */
+@media (max-width: 768px) {
+    .content-wrapper {
+        top: 30%;
+    }
+    
+    .main-logo {
+        width: 160px;
+    }
+    
+    .mines-btn {
+        padding: 15px 40px;
+        font-size: 18px;
+    }
+}
